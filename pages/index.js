@@ -1,13 +1,14 @@
 import Layout from "../components/Layout";
+import ProductItem from "../components/ProductItem";
+import data from "../utils/data";
 
 export default function Home() {
   return (
     <Layout title="Home">
-      <div>
-        <div className="bg-yellow-0">
-          <h1 className="text-4xl font-bold">NextMall with Tailwind CSS</h1>
-          <p>웹서버보안프로그래밍차윤지입니다</p>
-        </div>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
+        {data.products.map((product) => (
+          <ProductItem product={product} key={product.slug} />
+        ))}
       </div>
     </Layout>
   );
